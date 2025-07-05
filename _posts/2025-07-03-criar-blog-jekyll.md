@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Criando um blog com Jekyll"
 ---
 

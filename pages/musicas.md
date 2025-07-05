@@ -1,6 +1,5 @@
 ---
 title: Recomendações de músicas
-layout: default
 permalink: /musica/
 ---
 

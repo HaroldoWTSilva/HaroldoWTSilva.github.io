@@ -18,17 +18,30 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: A Palavra de Haroldo Watson
+title: A Palavra de Haroldo W. T. Silva
 description: >- # this means to ignore newlines until "baseurl:"
   Um blog sobre computação, multimídia e dominação global.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://haroldowtsilva.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://haroldowtsilva.github.io"
 
 featured: inauguracao
 
 # Build settings
 plugins:
   - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "HaroldoWTSilva"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
