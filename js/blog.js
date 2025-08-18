@@ -11,6 +11,8 @@ function tapronto(){
     }).fail(function() {
 	console.log('citacao: erro!')
     });
+    if (page_main)
+	page_main();
 }
 
 $(document).ready(tapronto);

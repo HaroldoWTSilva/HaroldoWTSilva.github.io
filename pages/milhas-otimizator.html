@@ -1,0 +1,49 @@
+---
+title: Super Milha Otimizator
+permalink: /milhas/
+---
+
+<div class="container">
+<h1>{{page.title}}</h1>
+
+<p>
+	O Super Milha Otimizeitor é uma aplicação que lhe permite encontrar a mais barata combinação de milhas e dinheiro para sua viagem.
+</p>
+<p>
+	Aplicativos de milhas (ex. Smiles) propõem ao usuário diferentes alternativas de como gastar milhas
+	dinheiro para um mesmo trecho de uma viagem.
+	Além disso, normalmente o usuário já tem algumas
+	milhas e pode comprar mais pelo aplicativo, o que torna a decisão de qual opção escolher não-trivial. 
+</p>
+
+<div class="mb-3 row">
+  <label for="nmilhas" class="col-sm-5 col-form-label">Seu saldo de milhas atual</label>
+  <div class="col-sm-5">
+    <input type="text" class="form-control" id="nmilhas">
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <label for="preco-milha" class="col-sm-5 col-form-label">Preço por milha</label>
+  <div class="col-sm-5">
+    <input type="text" class="form-control" id="preco-milha">
+  </div>
+</div>
+
+<button type="button" id="adicionar_etapa" class="btn btn-primary">Adicionar opção de etapa</button>
+
+<table id="etapas" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Etapa</th>
+      <th scope="col">Custo milhas</th>
+      <th scope="col">Custo dinheiro</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<script src="/js/milhas-otimizator.js"></script>
