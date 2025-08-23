@@ -1,11 +1,10 @@
 ---
 layout: post
 title: "Inauguração"
+coverimg: "festa-piramide.jpg"
 ---
 
 Esta deve ser a primeira postagem deste blog. Toda grande pirâmide começa com a primeira pedra.
-
-![Festa na pirâmide](/img/festa-piramide.jpg)
 
 Por este meio, anunciarei aos meus súditos a minha verdade, minha vontade e meu saber.
 

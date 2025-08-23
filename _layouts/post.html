@@ -8,7 +8,10 @@ layout: default
 		<header class="row mb-3">
 			<div class="col">
 			<h2>{{ page.title | escape }} </h2>
-			<time>{{page.date| date: "%d/%m/%Y" }}</time>	
+			<time>{{page.date| date: "%d/%m/%Y" }}</time>
+			{% if page.coverimg %}
+			<img src="/img/{{page.coverimg}}"/>
+			{% endif %}
 			</div>
 		</header>
 		{{ content }}
