@@ -11,7 +11,7 @@ function tapronto(){
     }).fail(function() {
 	console.log('citacao: erro!')
     });
-    if (page_main)
+    if (typeof(page_main) === 'function' )
 	page_main();
 }
 
