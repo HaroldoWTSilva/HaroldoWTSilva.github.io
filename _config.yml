@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://haroldowtsilva.github.io"
 
-featured: inauguracao
+featured: tutorial-stable-diffusion-cpp
 
 # Build settings
 plugins:
