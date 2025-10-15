@@ -169,6 +169,6 @@ com o formato h264, da utilidade do programa ffmpeg.
 para um tamanho pequeno o suficiente para ser compartilhado na internet,
 em fóruns ou redes sociais.
 
-## Trabalhos futuros.
+## Trabalhos futuros
 
 Testar o formato WEBM/VP9, ver as diferenças de qualidade e tempo de compressão.
