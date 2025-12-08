@@ -1,0 +1,16 @@
+site_name: A palavra de Haroldo Watson
+site_url: https://haroldowtsilva.github.io/
+repo_url: https://github.com/HaroldoWTSilva/HaroldoWTSilva.github.io
+repo_name: GitHub
+site_description: "Um site sobre programação, multimídia, opiniões perturbadoras e dominação mundial."
+site_author: Haroldo Watson
+theme:
+  name: material
+nav:
+  - Verdades:
+    - recomendacoes.md 
+  - Tutoriais:
+    - '2025/2025-07-03-criar-blog-jekyll.md'
+    - '2025/2025-08-22-tutorial-stable-diffusion-cpp.md'
+    - '2025/2025-10-09-compressao-video-ffmpeg.md'
+    - '2025/2025-10-19-acessando-irc-weechat.md'
