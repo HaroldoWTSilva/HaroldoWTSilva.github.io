@@ -1,6 +1,6 @@
 <div class="container">
   <footer class="pt-5 my-5 text-body-secondary border-top">
-    {{site.title}}
+    {{ $page->site_title }}
   </footer>
 </div>
 <script data-goatcounter="https://haroldowtsilva.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

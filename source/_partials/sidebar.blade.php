@@ -10,21 +10,21 @@
     >
 </a>
 	<h4 class="fst-italic">Sobre</h4> 
-	<p class="mb-0">{{site.description}}</p>
+	<p class="mb-0">{{ $page->description}}</p>
 </div>
 
 <div class="p-4">
 <h4>Artigos recentes</h4>
 <ul class="list-unstyled">
-{% for post in site.posts %}
+ @foreach($posts as $post)
 	<li class="py-3 border-top " >
-		<a class=" text-decoration-none"  href="{{post.url}}">
+		<a class=" text-decoration-none"  href="{{$post->getUrl()}}">
 		<div class="col-lg-8"> 
-			<h6 class="mb-0"> {{post.title}} </h6> 
-			<small class="text-body-secondary">{{post.date | date: "%d/%m/%Y"}}</small> 
+			<h6 class="mb-0"> {{$post->title}} </h6> 
+			<small class="text-body-secondary">{{$post->date }}</small> 
 		</div>	
 		</a>
 	</li>
-{% endfor %}
+@endforeach
 </ul>
 </div>

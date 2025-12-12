@@ -1,6 +1,13 @@
-_site
-_drafts
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+/build_local/
+/cache/
+/node_modules/
+/vendor/
+/.idea/
+/.vscode/
+npm-debug.log
+hot
+
+# Optional ignores
+/build_staging/
+/build_production/
+/source/assets/build/

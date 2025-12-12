@@ -1,5 +1,6 @@
 ---
 title: "Embedding tipográfico"
+date: '2025-09-11'
 ---
 
 Uma sugestão de converter caracteres para vetores (*embedding*) pode ser usar 

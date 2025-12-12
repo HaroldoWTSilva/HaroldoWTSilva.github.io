@@ -2,6 +2,7 @@
 layout: post
 title: "Inauguração"
 coverimg: "festa-piramide.jpg"
+date: '2025-06-21'
 ---
 
 Esta deve ser a primeira postagem deste blog. Toda grande pirâmide começa com a primeira pedra.

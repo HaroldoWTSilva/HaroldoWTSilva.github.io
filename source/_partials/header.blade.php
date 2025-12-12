@@ -1,16 +1,16 @@
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom">
 	<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-	<span class="fs-4">{{ site.title }}</span>
+	<span class="fs-4">{{ $page->site_title }}</span>
       </a>
 
       <ul class="nav nav-pills">
-	{% for item in site.data.nav %}
+	@foreach($page->nav as $item)
 	<li class="nav-item">
-		<a href="{{ item.url }}" class="nav-link {% if item.url == page.url %}active{% endif %}">
-			{{ item.label }}
+		<a href="{{ $item->url }}" class="nav-link" >
+			{{ $item->label }}
 		</a></li>
-	{% endfor %}
+	@endforeach
       </ul>
       <div>
       </div>
