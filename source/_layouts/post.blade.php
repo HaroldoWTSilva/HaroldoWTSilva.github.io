@@ -12,7 +12,7 @@
                         <h2>{{ $page->title }}</h2>
 
                         @if ($page->date)
-                            <time>{{ $page->date->format('d/m/Y') }}</time>
+                            <time>{{ date('d/m/Y', $page->date)}}</time>
                         @endif
 
                         @if ($page->coverimg)

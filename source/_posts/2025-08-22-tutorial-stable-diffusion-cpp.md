@@ -2,7 +2,7 @@
 title: Tutorial básico de stable-diffusion.cpp
 img: stable-diffusion-cpp-tutorial-result.png
 coverimg: stable-diffusion-cpp-tutorial-result.jpg
-date: '2025-08-22'
+date: 2025-08-22
 ---
 
 Ensinarei aqui como usar o [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp) para gerar imagens de IA generativa por linha de comando.

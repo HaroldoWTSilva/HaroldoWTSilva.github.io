@@ -13,6 +13,8 @@ function tapronto(){
     });
     if (typeof(page_main) === 'function' )
 	page_main();
+
+    hljs.highlightAll();
 }
 
 $(document).ready(tapronto);

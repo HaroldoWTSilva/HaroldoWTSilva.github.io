@@ -1,6 +1,6 @@
 ---
 title: Tutorial de compressão de vídeo com FFMPEG
-date: '2025-10-09'
+date: 2025-10-09
 ---
 
 Explicarei aqui como comprimir um vídeo por linha de comando com

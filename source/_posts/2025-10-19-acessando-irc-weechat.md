@@ -1,6 +1,6 @@
 ---
 title: Acessando o IRC com Weechat
-date: '2025-10-19'
+date: 2025-10-19
 ---
 
 Como acessar o IRC pelo terminal.

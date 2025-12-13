@@ -2,18 +2,22 @@
 
 return [
 	'site_title' => 'A palavra de Haroldo Watson',
-'featured' => '?',
 'production' => false,
-'baseUrl' => '',
+'baseUrl' => 'http://localhost:8000/',
 'description' => 'Um blog sobre computação, multimídia, opiniões perturbadoras e dominação global',
 'collections' => [
 	'posts' => [
+		'extends'=>'_layouts.post',
+		'section'=>'postContent',
 		'path'=>'{date|Y/m/d}/{-title}'
 	],
 	'pages' => [
-		'path'=>'permalink'
+		'extends'=>'_layouts.page',
+		'section'=>'pageContent',
+		'path'=>'{permalink}'
 	]
-],
+
+	],
 'nav' => [
 		[
 		'label' => "Home",

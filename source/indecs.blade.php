@@ -1,6 +1,9 @@
 ---
-featured: 2025-08-22-tutorial-stable-diffusion-cpp
+pagination:
+  collection: posts
+  perPage: 12
 ---
+
 @extends('_layouts.default')
 
 @section('content')
@@ -8,7 +11,7 @@ featured: 2025-08-22-tutorial-stable-diffusion-cpp
 
     {{-- Post em destaque --}}
     @foreach ($posts as $post)
-        @if ($post->getFilename() === $page->featured)
+        @if ($post->slug === $page->featured)
             <div class="row rounded text-body-emphasis bg-body-secondary chamada-destaque">
                 <div class="col-lg-6 px-0">
                     <small>Em destaque</small>
@@ -33,7 +36,7 @@ featured: 2025-08-22-tutorial-stable-diffusion-cpp
 
     {{-- Post mais recente --}}
     @php
-        $ultimo = $posts->sortByDesc('date')->first();
+        $ultimo = $pagination->items->first();
     @endphp
 
     <div class="row g-5">
@@ -41,7 +44,7 @@ featured: 2025-08-22-tutorial-stable-diffusion-cpp
             <article class="postagem">
                 @if ($ultimo)
                     <small>Postagem mais recente:</small>
-                    <time>{{ date('d/m/Y', $ultimo->date) }}</time>
+                    <time>{{ $ultimo->date }}</time>
 
                     <a href="{{ $ultimo->getUrl() }}">
                         <h3 class="pb-4 mb-4 border-bottom">{{ $ultimo->title }}</h3>
