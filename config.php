@@ -14,7 +14,7 @@ return [
 	'pages' => [
 		'extends'=>'_layouts.page',
 		'section'=>'pageContent',
-		'path'=>'{permalink}'
+		'path'=>'pages/{-title}'
 	]
 
 	],
@@ -25,7 +25,7 @@ return [
 		],
 		[
 		'label' => "Recomendados",
-		'url' => '/recomendacao/'
+		'url' => '/pages/recomendacoes/'
 		]
 	]
 ];

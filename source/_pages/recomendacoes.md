@@ -1,6 +1,5 @@
 ---
 title: Recomendações
-permalink: /recomendacao/
 ---
 
 Recomendações diversas, separadas por tipo de mídia. Eu recomendo somente o que eu consumi e gostei.
