@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embedding tipográfico</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/tango.css" rel="stylesheet">
+</head>
+
+  
+  <body>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom">
+	<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+	<span class="fs-4">A palavra de Haroldo Watson</span>
+      </a>
+
+      <ul class="nav nav-pills">
+		<li class="nav-item">
+		<a href="/" class="nav-link" >
+			Home
+		</a></li>
+		<li class="nav-item">
+		<a href="/recomendacao/" class="nav-link" >
+			Recomendados
+		</a></li>
+	      </ul>
+      <div>
+      </div>
+    </header>
+    <blockquote class="citacoes">Citação sábia</blockquote>
+</div>
+  <div class="container">
+    <div class="row">
+
+        <div class="col-md-8">
+            <article class="postagem">
+                <header class="row mb-3">
+                    <div class="col">
+
+                        <h2>Embedding tipográfico</h2>
+
+                                                    <time>11/09/2025</time>
+                        
+                                            </div>
+                </header>
+
+                <p>Uma sugestão de converter caracteres para vetores (<em>embedding</em>) pode ser usar 
+uma dimensão para cada tecla necessária para gerar o caractere. Seriam vetores
+esparsos. A ideia é que o <em>embedding</em> de uma palavra estaria relacionado à
+forma como a palavra é digitada em um teclado normal.</p>
+
+<p>Digamos que seja adotado o teclado ABNT2. Cada tecla do teclado que pode 
+gerar um caractere visível corresponde a uma dimensão, incluindo Shift 
+e acentos.</p>
+
+<p>O caractere <code>a</code>, então teria o valor 1 na dimensão
+correspondente à tecla "a", e zero nas demais dimensões.</p>
+
+<p>O caractere <code>A</code> teria 1 na dimensão da tecla "a" e um
+valor na dimensão da tecla <em>Shift</em>.</p>
+
+<p>O caractere <code>Â</code> seria na verdade quebrado em dois caracteres: primeiro o
+<code>^</code>, que teria 1 na dimensão do <em>Shift</em> e 1 na dimensão da tecla à direita 
+do <code>ç</code>, que tem <code>^</code> e <code>~</code>.</p>
+
+<p>Uma alternativa seria usar a posição em coordenadas 2D das teclas do teclado.
+Por exemplo, no teclado ABNT2, a tecla G está mais próxima espacialmente das teclas
+R,T,Y,F,H,V,B e N. Ela está notavelmente mais distante da tecla P. Então a tecla G deveria
+corresponder a um vetor 2D que está a uma distância menor da tecla N do que da tecla P.</p>
+
+<p>Uma vantagem dessas formas de representação é que palavras tipograficamente parecidas
+seriam mapeadas para sequências de vetores tipograficamente parecidos também.</p>
+
+<p>Não é do meu conhecimento se alguém já publicou algo parecido.</p>
+            </article>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4">
+<h4>Postagens recentes</h4>
+<ul class="list-unstyled">
+ 	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/06/21/inauguracao">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Inauguração </h6> 
+			<small class="text-body-secondary">21/06/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/07/03/criando-um-blog-com-jekyll">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Criando um blog com Jekyll </h6> 
+			<small class="text-body-secondary">03/07/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/08/17/svmlm">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> SVMLM </h6> 
+			<small class="text-body-secondary">17/08/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/08/22/tutorial-basico-de-stable-diffusion.cpp">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Tutorial básico de stable-diffusion.cpp </h6> 
+			<small class="text-body-secondary">22/08/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/09/11/embedding-tipografico">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Embedding tipográfico </h6> 
+			<small class="text-body-secondary">11/09/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/10/09/tutorial-de-compressao-de-video-com-ffmpeg">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Tutorial de compressão de vídeo com FFMPEG </h6> 
+			<small class="text-body-secondary">09/10/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/10/19/acessando-o-irc-com-weechat">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Acessando o IRC com Weechat </h6> 
+			<small class="text-body-secondary">19/10/2025</small> 
+		</div>	
+		</a>
+	</li>
+</ul>
+</div>
+
+<div class="p-4 mb-3 bg-body-tertiary"> 
+<a href="https://github.com/HaroldoWTSilva" target="_blank" rel="noopener noreferrer" class="avatar d-inline-block text-decoration-none">
+    <img 
+        src="https://github.com/HaroldoWTSilva.png" 
+        alt="Foto de perfil do Haroldo"
+        width="160"
+        height="160"
+        class="rounded-circle shadow transition-all"
+        style="object-fit: cover; border: 3px solid #f8f9fa;"
+    >
+</a>
+	<h4 class="fst-italic">Sobre</h4> 
+	<p class="mb-0">Um blog sobre computação, multimídia, opiniões perturbadoras e dominação global</p>
+</div>
+
+        </div>
+
+    </div>
+</div>
+  <div class="container">
+  <footer class="pt-5 my-5 text-body-secondary border-top">
+    A palavra de Haroldo Watson
+  </footer>
+</div>
+<script data-goatcounter="https://haroldowtsilva.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script src="/js/blog.js"></script>
+  </body>
+</html>
+

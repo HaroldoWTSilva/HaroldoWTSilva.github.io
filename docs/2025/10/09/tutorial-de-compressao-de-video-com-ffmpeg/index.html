@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorial de compressão de vídeo com FFMPEG</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/tango.css" rel="stylesheet">
+</head>
+
+  
+  <body>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom">
+	<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+	<span class="fs-4">A palavra de Haroldo Watson</span>
+      </a>
+
+      <ul class="nav nav-pills">
+		<li class="nav-item">
+		<a href="/" class="nav-link" >
+			Home
+		</a></li>
+		<li class="nav-item">
+		<a href="/recomendacao/" class="nav-link" >
+			Recomendados
+		</a></li>
+	      </ul>
+      <div>
+      </div>
+    </header>
+    <blockquote class="citacoes">Citação sábia</blockquote>
+</div>
+  <div class="container">
+    <div class="row">
+
+        <div class="col-md-8">
+            <article class="postagem">
+                <header class="row mb-3">
+                    <div class="col">
+
+                        <h2>Tutorial de compressão de vídeo com FFMPEG</h2>
+
+                                                    <time>09/10/2025</time>
+                        
+                                            </div>
+                </header>
+
+                <p>Explicarei aqui como comprimir um vídeo por linha de comando com
+o programa ffmpeg.</p>
+
+<h2>Introdução</h2>
+
+<p>Nesse post irei registrar meu conhecimento sobre compressão de vídeo com ffmpeg.</p>
+
+<p>Os comandos aqui foram testados no linux, mas, com as adaptações necessárias, 
+podem funcionar também no Windows, mesmo no terminal CMD.</p>
+
+<h2>Sobre o FFMPEG</h2>
+
+<p>O programa ffmpeg é um utilitário para análise, conversão e edição de vídeos
+em linha de comando. Diversos programas com interface gráfica, inclusive pagos,
+usam o ffmpeg por baixo dos panos.</p>
+
+<p>Ele é "open source e gratuito", em aspas bem suspeitas.
+O núcleo do programa é realmente open source, mas parte do código usada
+para a manipulação de vídeos (os codecs) nem sempre é, e há algumas dificuldades para se obter
+o programa em sua forma 100% funcional. Como consequência, muitas distros linux
+disponibilizam por padrão apenas uma versão limitada do programa nos 
+gerenciadores de pacotes.</p>
+
+<p>Para seguir esse tutorial, no mínimo, a instalação tem que ter
+os codecs <em>h264</em>, <em>mp3</em> e <em>mpeg4</em>. Pode-se listar os codecs com o comando:</p>
+
+<pre><code>ffmpeg -codecs
+</code></pre>
+
+<p>Caso sua instalação do ffmeg não tenha o necessário, por favor, baixe o ffmpeg da 
+<a href="https://www.ffmpeg.org/download.html">página oficial</a>.</p>
+
+<h2>Um objetivo de exemplo</h2>
+
+<p>O objetivo deste tutorial é transformar um arquivo de vídeo chamado <em>entrada.mkv</em>, 
+de 249MB, em um arquivo de saída chamado <em>saida.mp4</em>, de no máximo 38MB, utilizando somente
+o programa ffmpeg e a linha de comando do terminal. 
+O arquivo de saída, obviamente, será em formato <em>MP4</em> e deverá ter a melhor 
+qualidade de áudio e vídeo, dentro do possível para o tamanho.
+Além disso, o arquivo de saída deverá ser apto a ser reproduzido em navegadores web.</p>
+
+<h2>Análise do arquivo de entrada</h2>
+
+<p>Durante a escrita desse tutorial, estou testando com um arquivo de vídeo real
+baixado da internet. Talvez você tenha intenção de usar um vídeo similar. Nesse caso, não
+é o usuário quem determina quais são as trilhas do arquivo de entrada. Mas certamente
+pode-se determinar quais são as trilhas de som e vídeo do arquivo de saída.</p>
+
+<p>O comando <code>ffmpeg -i entrada.mkv</code> irá despejar uma abundância de  informações 
+do arquivo de entrada, incluindo informação sobre as trilhas, que aparecerão assim:</p>
+
+<pre><code>Stream #0:0: Video: hevc (Main 10), yuv420p10le(tv, bt709), 1920x1080, SAR 1:1 DAR 16:9, 23.98 fps, 23.98 tbr, 1k tbn (default)
+      Metadata:
+        BPS             : 869405
+        DURATION        : 00:23:56.102000000
+...
+Stream #0:2(jpn): Audio: aac (LC), 48000 Hz, stereo, fltp
+      Metadata:
+        title           : Japanese
+        BPS             : 107742
+        DURATION        : 00:23:56.095000000
+...
+Stream #0:4(eng): Subtitle: ass (ssa)
+      Metadata:
+        title           : English [Astral]
+        BPS             : 55858
+        DURATION        : 00:23:31.040000000
+
+</code></pre>
+
+<p>As trilhas acima são as que me interessam ter no arquivo de saída. Há várias
+ outras trilhas, incluindo áudio em inglês, outra trilha de legenda e trilhas
+ de fontes, que serão descartadas.</p>
+
+<h2>FFMPEG e h264</h2>
+
+<p>Para obter o máximo de compressão, iremos usar a conversão em dois passes de h264.
+Explicações mais detalhadas <a href="https://trac.ffmpeg.org/wiki/Encode/H.264">aqui</a>.
+Para usar essa técnica, precisamos antes determinar qual será a taxa de bits do vídeo
+e do áudio.</p>
+
+<p>Nosso objetivo é gerar um arquivo de vídeo com 36MB. Isso significa que a soma
+do tamanho da única trilha de vídeo da saída e da única trilha de áudio da 
+saída deve ser 36MB.</p>
+
+<p>Seguindo as instruções da página, podemos começar a escrever o script de conversão:</p>
+
+<pre><code class="language-bash">#duração do video em minutos
+DUR=24
+#tamanho esperado da saída, em MiB
+TAM_SAIDA=35
+#audio bitrate, em kbits/s
+AUDIOBR=48
+
+TOTALBR=$((TAM_SAIDA*8388608/(DUR*60*1000) ))
+VIDEOBR=$((TOTALBR-AUDIOBR))
+</code></pre>
+
+<p>A taxa de áudio é questão de preferência. A taxa de vídeo (videobr) no exemplo 
+ficou (arredondada) 161. 
+A determinação do tamanho de saída em MiB exige tentativa e erro. Nos meus testes,
+usar <code>TAM_SAIDA=36</code> gerou arquivos com mais de 39MB, o que não é aceitável aqui.
+É preciso filtrar o vídeo para reduzir a resolução e engravar as legendas:</p>
+
+<pre><code class="language-bash">FILTRO="scale=-2:960,subtitles=entrada.mkv:si=1"
+</code></pre>
+
+<p>Significa: a saída terá altura 960 e largura mantendo
+a proporção, que seja múltiplo de 2. Após reescalar a imagem, será
+engravada a segunda legenda que está nesse vídeo.</p>
+
+<p>Vamos agora juntar em um vetor argumentos que serão usados em ambos os passes:</p>
+
+<pre><code class="language-bash">COMUM=(-i entrada.mkv -map 0:0 -c:v libx264 -vf $FILTRO -b:v ${VIDEOBR}k -preset veryslow -tune animation -movflags +faststart -pix_fmt yuv420p)
+</code></pre>
+
+<p>Estamos usando <code>preset veryslow</code> para ter a melhor compressão possível, ainda que custando muito tempo.
+O <code>faststart</code> é importante para facilitar o carregamento de vídeos web.
+O arquivo de exemplo usado no teste era um desenho animado e, por isso, 
+<code>-tune animation</code> como dica para o programa.
+Forçamos o formato <code>yuv420p</code>, porque é amplamente aceito entre os navegadores.</p>
+
+<p>A execução em dois passes exige chamar o ffmpeg duas vezes:</p>
+
+<pre><code class="language-bash">ffmpeg -y ${COMUM[@]} -pass 1 -an -f null /dev/null
+
+ffmpeg -y ${COMUM[@]} -map 0:2 -c:a libopus -ac 1 -b:a ${AUDIOBR}k -pass 2 saida.mp4
+</code></pre>
+
+<p><strong>Atenção:</strong> estamos usando <code>-y</code> para sempre sobrescrever a saída.
+No primeiro passe, não é preciso processar o áudio e a saída pode ser ignorada. O que
+vai importar são um arquivo .mbtree e um arquivo .log que serão gerados e usados no 
+segundo passe.
+O segundo passe é notavelmente mais demorado que o primeiro.
+O áudio está sendo forçado a ser mono (um canal). Se preferir stereo, atente-se ao
+bitrate do audio e refaça os cálculos de acordo.</p>
+
+<p>Ao final do processo, deverá surgir o arquivo saída.mp4. É preciso assistir para
+garantir que tenha as qualidades desejadas de áudio e vídeo. Se não estiver, é preciso
+manipular os argumentos para tentar balancear, por exemplo, reduzindo a qualidade do 
+áudio para melhorar o vídeo. Claro que há limites para o que pode ser obtido,
+por causa das fortes restrições impostas.</p>
+
+<h2>Resultados</h2>
+
+<p>Nos testes realizados, o arquivo final ficou com qualidade aceitável.
+A imagem apresenta alguns borrões e artefatos ocasionais, mais perceptíveis
+quando o vídeo está pausado, mas que não são tão desagradáveis ao ponto
+de arruinar a experiência de assistir.
+O áudio ficou bom o bastante.
+Considerando o objetivo de poder compartilhar um vídeo em um navegador,
+parece-me ter sido atingido.</p>
+
+<h2>Conclusão</h2>
+
+<p>O processo aqui descrito é uma demonstração do poder da compressão de vídeo
+com o formato h264, da utilidade do programa ffmpeg.
+É uma prova de que é possível reduzir um vídeo de um desenho animado
+para um tamanho pequeno o suficiente para ser compartilhado na internet,
+em fóruns ou redes sociais.</p>
+
+<h2>Trabalhos futuros</h2>
+
+<p>Testar o formato WEBM/VP9, ver as diferenças de qualidade e tempo de compressão.</p>
+            </article>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4">
+<h4>Postagens recentes</h4>
+<ul class="list-unstyled">
+ 	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/06/21/inauguracao">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Inauguração </h6> 
+			<small class="text-body-secondary">21/06/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/07/03/criando-um-blog-com-jekyll">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Criando um blog com Jekyll </h6> 
+			<small class="text-body-secondary">03/07/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/08/17/svmlm">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> SVMLM </h6> 
+			<small class="text-body-secondary">17/08/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/08/22/tutorial-basico-de-stable-diffusion.cpp">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Tutorial básico de stable-diffusion.cpp </h6> 
+			<small class="text-body-secondary">22/08/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/09/11/embedding-tipografico">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Embedding tipográfico </h6> 
+			<small class="text-body-secondary">11/09/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/10/09/tutorial-de-compressao-de-video-com-ffmpeg">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Tutorial de compressão de vídeo com FFMPEG </h6> 
+			<small class="text-body-secondary">09/10/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/10/19/acessando-o-irc-com-weechat">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Acessando o IRC com Weechat </h6> 
+			<small class="text-body-secondary">19/10/2025</small> 
+		</div>	
+		</a>
+	</li>
+</ul>
+</div>
+
+<div class="p-4 mb-3 bg-body-tertiary"> 
+<a href="https://github.com/HaroldoWTSilva" target="_blank" rel="noopener noreferrer" class="avatar d-inline-block text-decoration-none">
+    <img 
+        src="https://github.com/HaroldoWTSilva.png" 
+        alt="Foto de perfil do Haroldo"
+        width="160"
+        height="160"
+        class="rounded-circle shadow transition-all"
+        style="object-fit: cover; border: 3px solid #f8f9fa;"
+    >
+</a>
+	<h4 class="fst-italic">Sobre</h4> 
+	<p class="mb-0">Um blog sobre computação, multimídia, opiniões perturbadoras e dominação global</p>
+</div>
+
+        </div>
+
+    </div>
+</div>
+  <div class="container">
+  <footer class="pt-5 my-5 text-body-secondary border-top">
+    A palavra de Haroldo Watson
+  </footer>
+</div>
+<script data-goatcounter="https://haroldowtsilva.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script src="/js/blog.js"></script>
+  </body>
+</html>
+
