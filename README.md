@@ -14,3 +14,14 @@ Postagens ficam em `source/_posts`. Precisam ter `date` e `title` no front matte
 
 Páginas atemporais ficam em `source/_pages`.
 
+O site pode ser testado com:
+
+```bash
+vendor/bin/jigsaw serve
+```
+
+O site pode ser construído com:
+
+```bash
+vendor/bin/jigsaw build production
+```
