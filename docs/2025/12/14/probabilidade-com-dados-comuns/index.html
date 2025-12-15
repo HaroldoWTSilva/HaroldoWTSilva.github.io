@@ -3,7 +3,7 @@
   <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SVMLM</title>
+<title>Probabilidade com dados comuns</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link href="/css/blog.css" rel="stylesheet">
@@ -41,34 +41,67 @@
                 <header class="row mb-3">
                     <div class="col">
 
-                        <h2>SVMLM</h2>
+                        <h2>Probabilidade com dados comuns</h2>
 
-                                                    <time>17/08/2025</time>
+                                                    <time>14/12/2025</time>
                         
                                             </div>
                 </header>
 
-                <p>Eu iniciei um novo repositório no GitHub chamado <a href="https://github.com/HaroldoWTSilva/svmlm">svmlm</a>.</p>
+                <p>Farei aqui algumas observações sobre as probabilidades com dados comuns
+de seis faces, conhecidos nos círculos de jogos como <em>d6</em>.</p>
 
-<p>A ideia é ser um modelo de linguagem que utilize somente métodos de machine learning
-com embasamento matemático sólido, sem apelar para aleatoriedade nem força bruta.
-Isso significa: sem redes neurais, nem algoritmos genéticos, nem nada do tipo.</p>
+<h2>O mínimo do básico</h2>
 
-<p>A ideologia por trás é fortemente baseada em palestras que eu vi de Vladimir Vapnik,
-criador do método Support Vector Machine, e de seu antagonismo ao deep learning, por
-considerá-lo força bruta. O argumento é: se um método precisa de muito poder computacional
-e muitos dados de treinamento, é força bruta.</p>
+<p>Jogar um dado gera um valor. Esse valor é o resultado da jogada do dado.
+Um dado comum, honesto, de seis faces deve ter igual chance de gerar
+qualquer valor, com probabilidade de <em>1/6</em> para cada valor. A um dado desses,
+em que os valores possíveis vão de 1 a 6, inclusive, chamaremos de <em>d6</em>.</p>
 
-<p>A verdade é que eu não estudei muito sobre LLMs, mas vi algo sobre o mecanismo
-de atenção, sobre RNNs, sobre LSTM e assuntos relacionados. Também não sou nenhum
-especialista em SVMs, mas eu consegui fazer uma implementação em C do algoritmo
-SMO-WSS3, que é o mesmo usado na LibSVM. Eu pretendo usar apenas SVM de duas
-classes, e não sei exatamente como posso encaixar no problema de um modelo
-de linguagem, mas tenho algumas ideias.</p>
+<p>Pode-se jogar um ou mais d6, e seguir uma infinidade de algoritmos para avaliar
+o resultado final, ou checar se um certo evento ocorreu.</p>
 
-<p>A implementação deverá ser toda feita em C e Lua.</p>
+<p>Por simplicidade, consideraremos apenas valores possíveis sempre que fizer
+sentido.</p>
 
-<p>Estou animado para ver até onde consigo ir.</p>
+<h2>Diversos casos</h2>
+
+<p><em>Jogar um d6 e checar se o valor é igual a X.</em>
+Ex: <em>d6 = 4</em>. 
+A probabilidade é <em>1/6</em>, para todo X.</p>
+
+<p><em>Jogar dois d6 e checar se os valores são iguais.</em>
+A probabilidade é <em>6/36 = 1/6</em>.</p>
+
+<p><em>Jogar dois d6 e checar se ambos os valores são iguais a X.</em>
+A probabilidade é <em>1/36</em>.</p>
+
+<p><em>Jogar um d6 e checar se o valor é maior que X.</em>
+A probabilidade é <code>(6-X)/6</code>.
+Chamemos <code>dm(X)</code> a essa função. É uma função linear descrescente.</p>
+
+<p><em>Jogar dois d6 e checar se ambos os valores são maiores que X.</em>
+A probabilidade é <code>dm(X)^2</code>. É uma função quadrática decrescente.
+Para X=1 a probabilidade é 25 vezes maior do que para X=5.</p>
+
+<p><em>Jogar dois d6 e checar se o menor valor é menor ou igual a X.</em>
+A probabilidade é <code>1 - dm(X)^2</code>.</p>
+
+<p><em>Jogar dois d6 e checar se a soma dos valores é igual a X.</em>
+A probabilidade é <code>min( (X-1)/36, (13-X)/36 )</code>. É uma função de formato
+triangular.</p>
+
+<h2>Reflexão</h2>
+
+<p>Em jogos de RPG de mesa, é comum usar diversos modelos de dados com números
+variados de faces, e até cores variadas para distinguí-los na aplicação de 
+certas regras do jogo.</p>
+
+<p>O autor considera o uso de dados com faces diferentes de seis uma invencionisse
+ridícula. Dados de seis faces são comuns e fáceis de obter.</p>
+
+<p>Jogos de mesa que usam dados para probabilidades deveriam ter suas regras
+planejadas para dados de seis faces.</p>
             </article>
         </div>
 

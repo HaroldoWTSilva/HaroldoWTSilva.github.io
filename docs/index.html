@@ -54,7 +54,7 @@
                     </a>
                 </div>
             </div>
-                                                
+                                                            
 
     
     
@@ -62,67 +62,67 @@
         <div class="col-md-8">
             <article class="postagem">
                                     <small>Postagem mais recente:</small>
-                    <time>19/10/2025</time>
+                    <time>14/12/2025</time>
 
-                    <a href="https://haroldowtsilva.github.io/2025/10/19/acessando-o-irc-com-weechat">
-                        <h3 class="pb-4 mb-4 border-bottom">Acessando o IRC com Weechat</h3>
+                    <a href="https://haroldowtsilva.github.io/2025/12/14/probabilidade-com-dados-comuns">
+                        <h3 class="pb-4 mb-4 border-bottom">Probabilidade com dados comuns</h3>
                     </a>
 
                     
-                    <p>Como acessar o IRC pelo terminal.</p>
+                    <p>Farei aqui algumas observações sobre as probabilidades com dados comuns
+de seis faces, conhecidos nos círculos de jogos como <em>d6</em>.</p>
 
-<p>Este é um guia rápido do uso do programa <a href="https://weechat.org">Weechat</a> 
-para acessar a rede IRC pelo terminal do Linux.</p>
+<h2>O mínimo do básico</h2>
 
-<h2>Sobre o IRC</h2>
+<p>Jogar um dado gera um valor. Esse valor é o resultado da jogada do dado.
+Um dado comum, honesto, de seis faces deve ter igual chance de gerar
+qualquer valor, com probabilidade de <em>1/6</em> para cada valor. A um dado desses,
+em que os valores possíveis vão de 1 a 6, inclusive, chamaremos de <em>d6</em>.</p>
 
-<p>É uma rede de chat que era muito popular
-no Brasil nos anos 2000. De lá pra cá caiu muito em número de usuários
-brasileiros, que migraram para as redes sociais, e aplicativos de mensagem
-instantânea. Mas ainda é usada ao redor do mundo e também para compartilhamento
-de arquivos.</p>
+<p>Pode-se jogar um ou mais d6, e seguir uma infinidade de algoritmos para avaliar
+o resultado final, ou checar se um certo evento ocorreu.</p>
 
-<h2>O estado atual dos programas IRC no Linux</h2>
+<p>Por simplicidade, consideraremos apenas valores possíveis sempre que fizer
+sentido.</p>
 
-<p>Para Gnome, existe o programa "oficial" de IRC que é o Polari.
-Também pode-se usar o HexChat.
-Eu tive problemas com ambos. O Weechat é o único que não me desapontou.</p>
+<h2>Diversos casos</h2>
 
-<h2>Guia de uso</h2>
+<p><em>Jogar um d6 e checar se o valor é igual a X.</em>
+Ex: <em>d6 = 4</em>. 
+A probabilidade é <em>1/6</em>, para todo X.</p>
 
-<p>Após instalar e iniciar o Weechat, você estará diante de uma aplicação
-de terminal que é controlada principalmente por comandos digitados no prompt.</p>
+<p><em>Jogar dois d6 e checar se os valores são iguais.</em>
+A probabilidade é <em>6/36 = 1/6</em>.</p>
 
-<p>Há vários servidores aos quais o usuário pode se conectar.
-Vamos começar adicionando o servidor Rizon:</p>
+<p><em>Jogar dois d6 e checar se ambos os valores são iguais a X.</em>
+A probabilidade é <em>1/36</em>.</p>
 
-<pre><code class="language-bash">/server add rizon irc.rizon.net/6697
-</code></pre>
+<p><em>Jogar um d6 e checar se o valor é maior que X.</em>
+A probabilidade é <code>(6-X)/6</code>.
+Chamemos <code>dm(X)</code> a essa função. É uma função linear descrescente.</p>
 
-<p>Agora setar os nicks, em ordem de preferência:</p>
+<p><em>Jogar dois d6 e checar se ambos os valores são maiores que X.</em>
+A probabilidade é <code>dm(X)^2</code>. É uma função quadrática decrescente.
+Para X=1 a probabilidade é 25 vezes maior do que para X=5.</p>
 
-<pre><code class="language-bash">/set irc.server.rizon.nicks "PrincesaDaDisney,ChipChip,NhecoNheco"
-</code></pre>
+<p><em>Jogar dois d6 e checar se o menor valor é menor ou igual a X.</em>
+A probabilidade é <code>1 - dm(X)^2</code>.</p>
 
-<p>Setar um nome falso, porque não é bom revelar dados pessoais para desconhecidos:</p>
+<p><em>Jogar dois d6 e checar se a soma dos valores é igual a X.</em>
+A probabilidade é <code>min( (X-1)/36, (13-X)/36 )</code>. É uma função de formato
+triangular.</p>
 
-<pre><code class="language-bash">/set irc.server.rizon.realname "Cleobaldo Paiva"
-</code></pre>
+<h2>Reflexão</h2>
 
-<p>Determinar a pasta de downloads, porque o padrão é tosco:</p>
+<p>Em jogos de RPG de mesa, é comum usar diversos modelos de dados com números
+variados de faces, e até cores variadas para distinguí-los na aplicação de 
+certas regras do jogo.</p>
 
-<pre><code class="language-bash">/set xfer.file.download_path "~/Downloads"
-</code></pre>
+<p>O autor considera o uso de dados com faces diferentes de seis uma invencionisse
+ridícula. Dados de seis faces são comuns e fáceis de obter.</p>
 
-<p>Por fim, conectar-se à rede:</p>
-
-<pre><code class="language-bash">/connect rizon
-</code></pre>
-
-<p>E entrar em um canal amigável:</p>
-
-<pre><code class="language-bash">/join #cisco
-</code></pre>
+<p>Jogos de mesa que usam dados para probabilidades deveriam ter suas regras
+planejadas para dados de seis faces.</p>
 
                             </article>
         </div>
@@ -184,6 +184,14 @@ Vamos começar adicionando o servidor Rizon:</p>
 		<div class="col-lg-8"> 
 			<h6 class="mb-0"> Acessando o IRC com Weechat </h6> 
 			<small class="text-body-secondary">19/10/2025</small> 
+		</div>	
+		</a>
+	</li>
+	<li class="py-3 border-top " >
+		<a class=" text-decoration-none"  href="https://haroldowtsilva.github.io/2025/12/14/probabilidade-com-dados-comuns">
+		<div class="col-lg-8"> 
+			<h6 class="mb-0"> Probabilidade com dados comuns </h6> 
+			<small class="text-body-secondary">14/12/2025</small> 
 		</div>	
 		</a>
 	</li>
