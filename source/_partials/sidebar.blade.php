@@ -2,7 +2,7 @@
 <div class="p-4">
 <h4>Postagens recentes</h4>
 <ul class="list-unstyled">
- @foreach($posts as $post)
+ @foreach($posts->take(6) as $post)
 	<li class="py-3 border-top " >
 		<a class=" text-decoration-none"  href="{{$post->getUrl()}}">
 		<div class="col-lg-8"> 

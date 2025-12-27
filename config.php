@@ -9,7 +9,11 @@ return [
 	'posts' => [
 		'extends'=>'_layouts.post',
 		'section'=>'postContent',
-		'path'=>'{date|Y/m/d}/{-title}'
+		'path'=>'{date|Y/m/d}/{-title}',
+    'sort'=>['-date'],
+    'filter' => function($item){
+      return !$item->draft;
+    }
 	],
 	'pages' => [
 		'extends'=>'_layouts.page',
@@ -24,6 +28,10 @@ return [
 		'url' => '/'
 		],
 		[
+		'label' => "Postagens",
+		'url' => '/posts/'
+		],
+    [
 		'label' => "Recomendados",
 		'url' => '/pages/recomendacoes/'
 		]
