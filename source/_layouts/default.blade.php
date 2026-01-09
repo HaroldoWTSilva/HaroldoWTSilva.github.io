@@ -2,9 +2,15 @@
 <html lang="pt-br">
   @include('_partials.head')  
   <body>
-  @include('_partials.header')
-  @yield('content')
-  @include('_partials.footer')
+    <header>
+      @include('_partials.header')
+    </header>
+    <main>
+      @yield('content')
+    </main>
+    <footer>
+      @include('_partials.footer')
+    </footer> 
   </body>
 </html>
 

@@ -1,8 +1,7 @@
-<div class="container">
-  <footer class="pt-5 my-5 text-body-secondary border-top">
-    {{ $page->site_title }}
-  </footer>
+<div>
+{{ $page->site_title }}
 </div>
+
 <script data-goatcounter="https://haroldowtsilva.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 <script src="/js/jquery-3.7.1.min.js"></script>

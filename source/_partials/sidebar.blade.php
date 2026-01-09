@@ -1,32 +1,26 @@
+<nav>
+  <h3>Postagens recentes</h3>
+  <ul>
+    @foreach($posts->take(6) as $post)
+    <li>
+      <small>{{ date('d/m/Y' ,$post->date) }}</small>
+      <a href="{{$post->getUrl()}}">
+          {{$post->title}}
+      </a>
+    </li>
+    @endforeach
+  </ul>
+</nav>
 
-<div class="p-4">
-<h4>Postagens recentes</h4>
-<ul class="list-unstyled">
- @foreach($posts->take(6) as $post)
-	<li class="py-3 border-top " >
-		<a class=" text-decoration-none"  href="{{$post->getUrl()}}">
-		<div class="col-lg-8"> 
-			<h6 class="mb-0"> {{$post->title}} </h6> 
-			<small class="text-body-secondary">{{ date('d/m/Y' ,$post->date) }}</small> 
-		</div>	
-		</a>
-	</li>
-@endforeach
-</ul>
-</div>
-
-<div class="p-4 mb-3 bg-body-tertiary"> 
-<a href="https://github.com/HaroldoWTSilva" target="_blank" rel="noopener noreferrer" class="avatar d-inline-block text-decoration-none">
+<section class="sobre">
+  <h3>Sobre</h3>  
+  <a href="https://github.com/HaroldoWTSilva" target="_blank" rel="noopener noreferrer" class="avatar">
     <img 
-        src="https://github.com/HaroldoWTSilva.png" 
-        alt="Foto de perfil do Haroldo"
-        width="160"
-        height="160"
-        class="rounded-circle shadow transition-all"
-        style="object-fit: cover; border: 3px solid #f8f9fa;"
+      src="https://github.com/HaroldoWTSilva.png" 
+      alt="Foto de perfil do Haroldo"
+      class="transition-all"
     >
-</a>
-	<h4 class="fst-italic">Sobre</h4> 
-	<p class="mb-0">{{ $page->description}}</p>
-</div>
+  </a>
+  <p>{{ $page->description}}</p>
+</section>
 
