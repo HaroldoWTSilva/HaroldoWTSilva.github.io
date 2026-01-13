@@ -16,8 +16,8 @@ return [
     }
 	],
 	'pages' => [
-		'extends'=>'_layouts.page',
-		'section'=>'pageContent',
+		'extends'=>'_layouts.default',
+		'section'=>'content',
 		'path'=>'pages/{-title}'
 	]
 

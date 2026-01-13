@@ -4,29 +4,26 @@ featured: 2025-08-22-tutorial-stable-diffusion-cpp
 @extends('_layouts.default')
 
 @section('content')
-<section class="container">
-
     {{-- Post em destaque --}}
     @foreach ($posts as $post)
         @if ($post->getFilename() === $page->featured)
-            <div class="row rounded text-body-emphasis bg-body-secondary chamada-destaque">
-                <div class="col-lg-6 px-0">
-                    <small>Em destaque</small>
-                    <h1 class="display-4 fst-italic">{{ $post->title }}</h1>
-                    <p class="lead my-3">{{ $post->excerpt }}</p>
-                    <p class="lead mb-0">
-                        <a href="{{ $post->getUrl() }}" class="text-body-emphasis fw-bold">
-                            Continue lendo...
-                        </a>
-                    </p>
-                </div>
-
-                <div class="col-lg-6">
-                    <a href="{{ $post->getUrl() }}">
-                        <img class="thumb" src="/img/{{ $post->coverimg }}" />
+            <section class="chamada-destaque">
+                <p>Postagem em destaque</p>
+                <p>
+                    <strong>{{ $post->title }}</strong>
+                </p>
+                <p>{{ $post->excerpt }}</p>
+                <a href="{{ $post->getUrl() }}">
+                    <img class="thumb" src="/img/{{ $post->coverimg }}" 
+                    alt="{{ $post->title }}" />
+                </a>
+                <p>
+                    <a href="{{ $post->getUrl() }}" >
+                        Continue lendo...
                     </a>
-                </div>
-            </div>
+                </p>
+                
+            </section>
         @endif
     @endforeach
 
@@ -35,32 +32,27 @@ featured: 2025-08-22-tutorial-stable-diffusion-cpp
     @php
         $ultimo = $posts->sortByDesc('date')->first();
     @endphp
+    <article class="postagem">
+        @if ($ultimo)
+            <strong>Postagem mais recente:</strong>
+            <time>{{ date('d/m/Y', $ultimo->date) }}</time>
 
-    <div class="row g-5">
-        <div class="col-md-8">
-            <article class="postagem">
-                @if ($ultimo)
-                    <small>Postagem mais recente:</small>
-                    <time>{{ date('d/m/Y', $ultimo->date) }}</time>
+            <a href="{{ $ultimo->getUrl() }}">
+                <h1 >{{ $ultimo->title }}</h1>
+            </a>
 
-                    <a href="{{ $ultimo->getUrl() }}">
-                        <h3 class="pb-4 mb-4 border-bottom">{{ $ultimo->title }}</h3>
-                    </a>
+            @if ($ultimo->coverimg)
+                <img src="/img/{{ $ultimo->coverimg }}" 
+                alt="{{ $ultimo->title }}" />
+            @endif
 
-                    @if ($ultimo->coverimg)
-                        <img src="/img/{{ $ultimo->coverimg }}" />
-                    @endif
+            {!! $ultimo->getContent() !!}
+        @endif
+    </article>
 
-                    {!! $ultimo->getContent() !!}
-                @endif
-            </article>
-        </div>
-
-        <div class="col-md-4">
-            @include('_partials.sidebar')
-        </div>
-    </div>
-
-</section>
+    <aside>
+        @include('_partials.sidebar')
+    </aside>
+    
 @endsection
 

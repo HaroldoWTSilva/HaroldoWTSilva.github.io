@@ -3,7 +3,7 @@ function tapronto(){
 	if (data.length > 0) {
 	    var randomIndex = Math.floor(Math.random() * data.length);
 	    var fraseAleatoria = data[randomIndex];
-	    $('blockquote.citacoes').text(fraseAleatoria);
+	    $('header blockquote').text(fraseAleatoria);
 	    console.log("citacao: "+fraseAleatoria);
 	} else {
 	    console.log("citacao: nenhuma frase!")

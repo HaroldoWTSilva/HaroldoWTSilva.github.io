@@ -1,19 +1,18 @@
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom">
-	<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-	<span class="fs-4">{{ $page->site_title }}</span>
-      </a>
+<nav>
+    <ul>
+        <li>
+            <a href="/">{{ $page->site_title }}</a>
+        </li>
+    </ul>
+    <ul>
+        @foreach($page->nav as $item)
+        <li>
+            <a href="{{ $item->url }}">{{ $item->label }}</a>
+        </li>
+        @endforeach
+    </ul>
+</nav>
+<blockquote>Citação sábia</blockquote>
 
-      <ul class="nav nav-pills">
-	@foreach($page->nav as $item)
-	<li class="nav-item">
-		<a href="{{ $item->url }}" class="nav-link" >
-			{{ $item->label }}
-		</a></li>
-	@endforeach
-      </ul>
-      <div>
-      </div>
-    </header>
-    <blockquote class="citacoes">Citação sábia</blockquote>
-</div>
+
+

@@ -1,6 +1,6 @@
 article.postagem img{
 	display: block;
-	width: 50%;
+	width: 256px;
 	height: auto;
 	margin: auto;
 }
@@ -15,6 +15,7 @@ blockquote.citacoes {
 }
 
 .chamada-destaque {
+	text-align: center;
 	margin-bottom: 16px;
 	padding: 8px;
 	border-bottom: 8px black groove;
@@ -22,11 +23,26 @@ blockquote.citacoes {
 
 .chamada-destaque img.thumb {
 	width:256px;
-	height:256px;
-	float:right;
+	max-width: 50%;
+	height:auto;
+	border-radius: 50%;
 }
 
 a.avatar {
 object-fit: cover; 
 border: 3px solid #f8f9fa;
+}
+
+.sobre {
+	text-align: center;
+}
+
+.sobre h3 {
+	font-style: italic;
+}
+
+.sobre .avatar img {
+	width:128px;
+	height:128px;
+	border-radius: 50%;
 }

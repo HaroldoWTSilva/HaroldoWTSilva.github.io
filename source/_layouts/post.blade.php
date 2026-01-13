@@ -1,34 +1,23 @@
 @extends('_layouts.default')
 
 @section('content')
-<div class="container">
-    <div class="row">
+<article class="postagem">
+    <header>
+        <h1>{{ $page->title }}</h1>
 
-        <div class="col-md-8">
-            <article class="postagem">
-                <header class="row mb-3">
-                    <div class="col">
+        @if ($page->date)
+            <time>{{ date('d/m/Y', $page->date)}}</time>
+        @endif
 
-                        <h2>{{ $page->title }}</h2>
+        @if ($page->coverimg)
+            <img src="/img/{{ $page->coverimg }}" alt="{{ $page->title }}" />
+        @endif
+    </header>
 
-                        @if ($page->date)
-                            <time>{{ date('d/m/Y', $page->date)}}</time>
-                        @endif
+    @yield('postContent')
+</article>
 
-                        @if ($page->coverimg)
-                            <img src="/img/{{ $page->coverimg }}" />
-                        @endif
-                    </div>
-                </header>
-
-                @yield('postContent')
-            </article>
-        </div>
-
-        <div class="col-md-4">
-            @include('_partials.sidebar')
-        </div>
-
-    </div>
-</div>
+<aside>
+    @include('_partials.sidebar')
+</aside>
 @endsection

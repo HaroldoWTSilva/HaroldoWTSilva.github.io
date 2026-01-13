@@ -7,40 +7,36 @@ pagination:
 @extends('_layouts.default')
 
 @section('content')
-<section class="container">
+<section>
+	<h1>Postagens</h1>
+	<p>	
+	Página {{ $pagination->currentPage }} de {{ $pagination->totalPages }}
+	</p>
+	<nav>
+		@if ($previous = $pagination->previous)
+		    <a href="{{ $pagination->first }}">Primeira</a>
+		    <a href="{{ $previous }}">Anterior</a>
+		@else
+		    <a role="button" disabled>Primeira</a>
+		@endif
 
-	<div class="row">
-	    <div class="col" >
-		<h1>Postagens</h1>
-		<p>	
-		Página {{ $pagination->currentPage }} de {{ $pagination->totalPages }}
-		</p>
-		<ul class="nav">
-			@if ($previous = $pagination->previous)
-			    <li class="nav-item"><a class="nav-link" href="{{ $pagination->first }}">Primeira</a></li>
-			    <li class="nav-item"><a class="nav-link" href="{{ $previous }}">Anterior</a></li>
-			@else
-			    <li class="nav-item"><a class="nav-link disabled">Primeira</a></li>
-			@endif
-
-			@if ($next = $pagination->next)
-			    <li class="nav-item"><a class="nav-link" href="{{ $next }}">Próxima</a></li>
-			    <li class="nav-item"><a class="nav-link" href="{{ $pagination->last }}">Última</a></li>
-			@else
-			    <li class="nav-item"><a class="nav-link disabled">Última</a></li>
-			@endif
-		</ul>
-    @foreach ($pagination->items as $post)
-			<p>
-			<time> {{ date('d/m/Y', $post->date) }}</time> 
-			<a href="{{ $post->getUrl() }}">
-				{{ $post->title }}
-			</a>
-			</p>
-    
-    @endforeach
-		</div>
-	</div>
+		@if ($next = $pagination->next)
+		    <a href="{{ $next }}">Próxima</a>
+		    <a href="{{ $pagination->last }}">Última</a>
+		@else
+		    <a role="button" disabled>Última</a>
+		@endif
+	</nav>
+	<article>
+		@foreach ($pagination->items as $post)
+			<article>
+				<time>{{ date('d/m/Y', $post->date) }}</time> 
+				<a href="{{ $post->getUrl() }}">
+					{{ $post->title }}
+				</a>
+			</article>
+		@endforeach
+	</article>
 </section>
 @endsection
 
