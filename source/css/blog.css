@@ -25,6 +25,7 @@ blockquote.citacoes {
 	width:256px;
 	max-width: 50%;
 	height:auto;
+	border-radius: 50%;
 }
 
 a.avatar {
@@ -43,4 +44,5 @@ border: 3px solid #f8f9fa;
 .sobre .avatar img {
 	width:128px;
 	height:128px;
+	border-radius: 50%;
 }
