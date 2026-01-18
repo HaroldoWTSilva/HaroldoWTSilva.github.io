@@ -1,0 +1,50 @@
+---
+featured: 2025-08-22-tutorial-stable-diffusion-cpp
+layout: default
+---
+
+{% for post in site.posts %}
+{% if post.path == '_posts/' | append: page.featured | append: '.md' %}
+<section class="chamada-destaque">
+    <p>Postagem em destaque</p>
+    <p>
+        <strong>{{ post.title }}</strong>
+    </p>
+    <p>{{ post.excerpt }}</p>
+    <a href="{{ post.url }}">
+        <img class="thumb" src="/img/{{ post.coverimg }}" 
+        alt="{{ post.title }}" />
+    </a>
+    <p>
+        <a href="{{ post.url }}" >
+            Continue lendo...
+        </a>
+    </p>
+    
+</section>
+{% endif %}
+{% endfor %}
+
+{% assign latest = site.posts.first %}
+<article class="postagem">
+    {% if latest %}
+        <strong>Postagem mais recente:</strong>
+        <time>{{ latest.date | date: "%d/%m/%Y" }}</time>
+
+        <a href="{{ latest.url }}">
+            <h1 >{{ latest.title }}</h1>
+        </a>
+
+        {% if latest.coverimg %}
+            <img src="/img/{{ latest.coverimg }}" 
+            alt="{{ latest.title }}" />
+        {% endif %}
+
+        {{ latest.content }}
+    {% endif %}
+</article>
+
+<aside>
+    {% include sidebar.html %}
+</aside>
+

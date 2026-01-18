@@ -1,0 +1,15 @@
+<nav>
+    <ul>
+        <li>
+            <a href="/">{{ site.title }}</a>
+        </li>
+    </ul>
+    <ul>
+        {% for item in site.nav %}
+        <li>
+            <a href="{{ item.url }}">{{ item.label }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+<blockquote>Citação sábia</blockquote>
