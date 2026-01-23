@@ -1,7 +1,10 @@
 ---
 title: Calculando um retorno de investimento com Prolog
 date: 2025-12-27
+excerpt: "Aprenda a calcular juros com prolog"
 ---
+
+## Introdução
 
 Começo desejando a todos os meus súditos boas festas de fim de ano.
 

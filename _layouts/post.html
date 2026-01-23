@@ -2,22 +2,20 @@
 layout: default
 ---
 
-<article class="postagem">
-    <header>
-        <h1>{{ page.title }}</h1>
+{% include post.html post=page %}
 
-        {% if page.date %}
-            <time>{{ page.date | date: "%d/%m/%Y" }}</time>
-        {% endif %}
+<nav>
+    {% if page.previous %}
+        <a href="{{ page.previous.url }}">
+            Anterior ({{ page.previous.title }})</a>
+    {% else %}
+        <a disabled>Anterior</a>
+    {% endif %}
 
-        {% if page.coverimg %}
-            <img src="/img/{{ page.coverimg }}" alt="{{ page.title }}" />
-        {% endif %}
-    </header>
-
-    {{ content }}
-</article>
-
-<aside>
-    {% include sidebar.html %}
-</aside>
+    {% if page.next %}
+        <a href="{{ page.next.url }}">
+            Seguinte ({{ page.next.title }})</a>
+    {% else %}
+        <a disabled>Seguinte</a>
+    {% endif %}
+</nav>

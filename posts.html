@@ -1,0 +1,37 @@
+---
+layout: default
+title: Postagens
+---
+
+<section>
+	<h1>Postagens</h1>
+	<p>	
+	Página {{ paginator.page }} de {{ paginator.total_pages }}
+	</p>
+	<nav>
+		{% if paginator.previous_page %}
+		    <a role="button" href="{{ paginator.previous_page_path }}">
+				Anterior</a>
+		{% else %}
+		    <a role="button" disabled	>Anterior</a>
+		{% endif %}
+
+		{% if paginator.next_page %}
+		    <a role="button" href="{{ paginator.next_page_path }}">Próxima</a>
+		{% else %}
+		    <a role="button" disabled>Próxima</a>
+		{% endif %}
+	</nav>
+	<article>
+		{% for post in paginator.posts %}
+			<article>
+				<time>{{ post.date | date: "%d/%m/%Y" }}</time> 
+				<a href="{{ post.url }}">
+					{{ post.title }}
+				</a>
+			</article>
+		{% endfor %}
+	</article>
+</section>
+
+

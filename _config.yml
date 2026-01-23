@@ -30,6 +30,7 @@ github_username:  haroldowtsilva
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -53,8 +54,16 @@ plugins:
 exclude:
   - old/
 
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 defaults:
   - scope:
       path: "_posts" # an empty string here means all files in the project
     values:
       layout: "post"
+  - scope:
+      path: "pages" # an empty string here means all files in the project
+    values:
+      layout: "default"
+  

@@ -1,9 +1,10 @@
 ---
 title: Acessando o IRC com Weechat
 date: 2025-10-19
+excerpt: "Acesse o IRC pelo terminal"
 ---
 
-Como acessar o IRC pelo terminal.
+## Introdução
 
 Este é um guia rápido do uso do programa [Weechat](https://weechat.org) 
 para acessar a rede IRC pelo terminal do Linux. 

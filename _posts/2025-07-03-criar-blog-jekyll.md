@@ -1,6 +1,7 @@
 ---
 title: "Criando um blog com Jekyll"
 date: 2025-07-03
+excerpt: "Aprenda o básico de uso de Jekyll para criar um blog"
 ---
 
 Editar um blog em Jekyll é fácil. Construir um, no entanto, não é. O processo de instalar, do zero, as dependências necessárias

@@ -3,9 +3,8 @@ layout: post
 title:  "Welcome to Jekyll!"
 date:   2026-01-18 09:31:25 -0600
 categories: jekyll update
+excerpt: "Sobre como me dei ao trabalho de passar o blog inteiro para Jigsaw, só para trazê-lo de volta pra Jekyll."
 ---
-
-Sobre como me dei ao trabalho de passar o blog inteiro para Jigsaw, só para trazê-lo de volta pra Jekyll.
 
 ## Cons de Jekyll
 
