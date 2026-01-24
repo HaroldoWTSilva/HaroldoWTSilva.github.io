@@ -9,12 +9,16 @@ article.postagem pre{
 	margin-left:20px;
 }
 
-article.postagem h1{
+article.postagem p{
+	text-indent: 1.8em;
+}
+
+article.postagem header hgroup {
 	text-align: center;
 }
 
-article.postagem p{
-	text-indent: 1.8em;
+article.postagem code {
+	text-indent: 0;
 }
 
 blockquote.citacoes {
@@ -39,14 +43,6 @@ blockquote.citacoes {
 a.avatar {
 	object-fit: cover; 
 	border: 3px solid #f8f9fa;
-}
-
-.sobre {
-	text-align: center;
-}
-
-.sobre h3 {
-	font-style: italic;
 }
 
 .sobre .avatar img {

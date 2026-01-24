@@ -4,14 +4,14 @@
             <time>{{ include.post.date | date: "%d/%m/%Y" }}</time>
         {% endif %}    
 
-        <h1>{{ include.post.title }}</h1>
-
+        <hgroup>
+            <h1>{{ include.post.title }}</h1>
+            <h2>{{ include.post.excerpt }}</h2>
+        </hgroup>
+        
         {% if include.post.coverimg %}
             <img src="/img/{{ include.post.coverimg }}" alt="{{ include.post.title }}" />
         {% endif %}
-        <p>
-            {{ include.post.excerpt }}
-        </p>
     </header>
 
     {{ include.post.content }}

@@ -4,9 +4,6 @@ date: 2025-10-09
 excerpt: "Aprenda a reduzir o tamanho de um vídeo por linha de comando."
 ---
 
-Explicarei aqui como comprimir um vídeo por linha de comando com
-o programa ffmpeg.
-
 ## Introdução
 
 Nesse post irei registrar meu conhecimento sobre compressão de vídeo com ffmpeg.

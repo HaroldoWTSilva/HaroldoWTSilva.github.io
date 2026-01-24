@@ -1,0 +1,14 @@
+{% for post in site.posts %}
+{% if post.slug == page.featured %}
+<section class="chamada-destaque">
+    <p>Postagem em destaque: 
+        <a href="{{ post.url }}" >
+            <strong>{{ post.title }}</strong>
+        </a>
+
+    </p>
+    <p>{{ post.excerpt }}</p>
+    
+</section>
+{% endif %}
+{% endfor %}
