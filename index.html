@@ -9,7 +9,7 @@ layout: default
 {% include post.html post=post %}
 {% endfor %}
 
-<nav>
+<nav id="pagination">
     {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path }}">
             Página anterior ({{paginator.previous_page }})</a>

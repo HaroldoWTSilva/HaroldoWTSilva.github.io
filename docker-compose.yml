@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  blog:
+    image: docker.io/jekyll/jekyll
+    container_name: blog
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll
+      - blog_gems:/usr/local/bundle
+    environment:
+      - JEKYLL_ROOTLESS=1
+    command: jekyll serve
+
+volumes:
+  blog_gems:
+    name: blog_gems

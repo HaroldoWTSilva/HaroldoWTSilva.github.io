@@ -1,3 +1,9 @@
+#pagination {
+    background-image: url('/img/mat_marble_white_01-128x128.png');
+    background-repeat: repeat;
+
+}
+
 article.postagem img{
 	display: block;
 	width: 256px;
@@ -50,3 +56,20 @@ a.avatar {
 	height:128px;
 	border-radius: 50%;
 }
+
+body {
+    background-image: url('/img/tile_07-128x128.png');
+    background-repeat: repeat;
+}
+
+header { 
+    background-image: url('/img/mat_marble_white_01-128x128.png');
+    background-repeat: repeat;
+}
+
+footer { 
+    background-image: url('/img/mat_marble_white_01-128x128.png');
+    background-repeat: repeat;
+}
+
+

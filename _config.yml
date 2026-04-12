@@ -27,7 +27,8 @@ url: "https://haroldowtsilva.github.io" # the base hostname & protocol for your 
 github_username:  haroldowtsilva
 
 # Build settings
-theme: minima
+#theme: minima
+remote_theme: daattali/beautiful-jekyll@6.0.1
 plugins:
   - jekyll-feed
   - jekyll-paginate
