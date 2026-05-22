@@ -1,7 +1,7 @@
 ---
 title: Recomendações
-classes: wide
 layout: single
+permalink: /recomendacoes/
 ---
 
 Recomendações diversas, separadas por tipo de mídia. Eu recomendo somente o que eu consumi e gostei.

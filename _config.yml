@@ -66,6 +66,8 @@ exclude:
   - .bundle/ 
  
 #opcoes do minimal-mistakes
+include:
+  - _pages
 timezone: America/Fortaleza
 enable_copy_code_button: true
 search: true
@@ -80,7 +82,7 @@ author:
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: "_posts"
       type: posts
     values:
       show_date: true
