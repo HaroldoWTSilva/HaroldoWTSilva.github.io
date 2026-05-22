@@ -1,26 +1,4 @@
 ---
-featured: tutorial-stable-diffusion-cpp
-layout: default
+layout: home
+author_profile: true
 ---
-
-
-
-{% for post in paginator.posts %}
-{% include post.html post=post %}
-{% endfor %}
-
-<nav id="pagination">
-    {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}">
-            Página anterior ({{paginator.previous_page }})</a>
-    {% else %}
-        <a disabled>Anterior</a>
-    {% endif %}
-
-    {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}">
-            Próxima página ({{paginator.next_page }})</a>
-    {% else %}
-        <a disabled>Próxima</a>
-    {% endif %}
-</nav>

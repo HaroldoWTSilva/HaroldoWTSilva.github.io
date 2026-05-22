@@ -19,19 +19,22 @@
 # in the templates via {{ site.myvariable }}.
 
 title: A Palavra de Haroldo Watson
+subtitle: Simples verdades
 description: >- # this means to ignore newlines until "baseurl:"
   Um blog sobre computação, multimídia, opiniões perturbadoras e 
   dominação global.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://haroldowtsilva.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  haroldowtsilva
-
+locale: "pt-BR"
+date_format: "%d/%m/%Y"
 # Build settings
 #theme: minima
-remote_theme: daattali/beautiful-jekyll@6.0.1
+remote_theme: "mmistakes/minimal-mistakes@4.28.0"
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-include-cache
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -55,16 +58,23 @@ plugins:
 exclude:
   - old/
 
-paginate: 5
-paginate_path: "/blog/page:num/"
+#opcoes do minimal-mistakes
+timezone: America/Fortaleza
+enable_copy_code_button: true
+search: true
+lunr:
+  search_within_pages: true
+author:
+  name     : "Haroldo Silva"
+  avatar   : "/assets/images/bio-photo.jpg"
+  bio      : "Engenheiro de Computação"
+  location : "Natal, Brasil"
 
 defaults:
+  # _posts
   - scope:
-      path: "_posts" # an empty string here means all files in the project
+      path: ""
+      type: posts
     values:
-      layout: "post"
-  - scope:
-      path: "pages" # an empty string here means all files in the project
-    values:
-      layout: "page"
-  
+      show_date: true
+      layout: single 
