@@ -57,14 +57,14 @@ plugins:
 #   - vendor/ruby/
 exclude:
   - old/
-  _site/
-  .sass-cache/
-  .jekyll-cache/
-  .jekyll-metadata
-  vendor/
-  .bundle/
-  node_modules/
-
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - .bundle/ 
+ 
 #opcoes do minimal-mistakes
 timezone: America/Fortaleza
 enable_copy_code_button: true
