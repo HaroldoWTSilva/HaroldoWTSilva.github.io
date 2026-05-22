@@ -57,6 +57,13 @@ plugins:
 #   - vendor/ruby/
 exclude:
   - old/
+  _site/
+  .sass-cache/
+  .jekyll-cache/
+  .jekyll-metadata
+  vendor/
+  .bundle/
+  node_modules/
 
 #opcoes do minimal-mistakes
 timezone: America/Fortaleza
