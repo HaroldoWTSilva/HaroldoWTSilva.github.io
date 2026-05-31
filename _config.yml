@@ -86,4 +86,10 @@ defaults:
       type: posts
     values:
       show_date: true
-      layout: single 
+      layout: single
+  - scope:
+      path: "_drafts"
+      type: posts
+    values:
+      show_date: false
+      layout: single
