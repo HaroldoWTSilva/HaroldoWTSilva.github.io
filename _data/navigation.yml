@@ -1,3 +1,5 @@
 main:
   - title: "Recomendações"
     url: /recomendacoes/
+  - title: "Jogos"
+    url: /ideias-jogos/
