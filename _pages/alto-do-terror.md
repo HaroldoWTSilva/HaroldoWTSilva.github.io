@@ -1,5 +1,6 @@
 --- 
 title: Ideia de jogo - Alto do Terror 
+permalink: /alto-do-terror/
 layout: single 
 toc: true
 toc-label: Sumário

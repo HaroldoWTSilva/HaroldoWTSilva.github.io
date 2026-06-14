@@ -12,4 +12,4 @@ ideias, no todo ou em parte, sem precisar pedir.
 Além disso, eu acredito que eu mesmo seria capaz de implementar todas essa
 ideias, se me fossem dados tempo e os recursos necessários.
 
-- [Alto do Terror](/ideias/alto-do-terror/)
+- [Alto do Terror](/alto-do-terror/)
