@@ -80,7 +80,7 @@ ridiculo em outras línguas (Conde Dooku que o diga).
   com trajes escuros, e sempre carrega facas e dardos bem expostos.
 
 - Mani Arim: homem adulto, muito magro e esguio, com presas bem longas. É irmão
-  de Zea. Tem aparência de ser um malandro sem-vergonha, e é mesmo. Também um
+  de Tatiz. Tem aparência de ser um malandro sem-vergonha, e é mesmo. Também um
   trapaceiro, zombador e mulherengo, com amantes espalhadas por várias cidades.
   É um guerreiro águia, especialista em velocidade e destreza. Veste-se com
   muitos acessórios de penas. Sua principal arma é uma lança.
