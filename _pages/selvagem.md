@@ -2,7 +2,7 @@
 title: Ideia de jogo - Selvagem 
 permalink: /selvagem/ 
 layout: single 
-toc:true 
+toc: true 
 toc-label: Sumário 
 ---
 

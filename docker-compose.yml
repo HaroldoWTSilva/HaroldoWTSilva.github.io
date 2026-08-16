@@ -6,7 +6,7 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - .:/srv/jekyll
+      - .:/srv/jekyll:Z
       - blog_gems:/usr/local/bundle
     environment:
       - JEKYLL_ROOTLESS=1
