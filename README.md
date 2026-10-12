@@ -1,27 +1,33 @@
-# A palavra de Haroldo Watson
+# A Palavra de Haroldo Watson
 
-Esse é o meu blog. Existem muitos outros blogs por aí, mas esse é meu.
+Blog construído com [MkDocs](https://www.mkdocs.org) (tema
+[Material](https://squidfunk.github.io/mkdocs-material/)) e publicado no
+GitHub Pages em <https://haroldowtsilva.github.io>.
 
-Atualmente usa o framework de páginas estáticas [Jigsaw](https://jigsaw.tighten.com/).
+## Estrutura
 
-Uso highlight.js, bootstrap css e jquery.
-Não uso node.js nem github actions.
+- `mkdocs.yml` — configuração do site (blog, tags, RSS, busca, temas claro/escuro,
+  redirecionamentos das URLs antigas do Jekyll, minificação, datas de revisão via git e
+  lightbox de imagens)
+- `overrides/` — templates customizados do tema (ex.: página 404)
+- `docs/` — páginas estáticas (páginas com `not_in_nav: true` ficam fora do menu, acessíveis só pelo link)
+- `docs/posts/` — postagens do blog, listadas na página inicial (rascunhos usam `draft: true`)
+- `docs/img/`, `docs/js/`, `docs/assets/` — arquivos estáticos
 
-Os arquivos de saída ficam na pasta docs, porque era isso ou ficar na root, que são 
-as únicas alternativas do github pages.
-
-Postagens ficam em `source/_posts`. Precisam ter `date` e `title` no front matter.
-
-Páginas atemporais ficam em `source/_pages`.
-
-O site pode ser testado com:
-
-```bash
-vendor/bin/jigsaw serve
-```
-
-O site pode ser construído com:
+## Desenvolvimento local
 
 ```bash
-vendor/bin/jigsaw build production
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+mkdocs serve
 ```
+
+Para gerar o site em `site/`:
+
+```bash
+mkdocs build
+```
+
+O deploy no GitHub Pages é feito automaticamente pelo workflow
+`.github/workflows/mkdocs.yml` a cada push na branch `main`.

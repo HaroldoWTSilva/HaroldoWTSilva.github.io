@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .not-found {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  .not-found h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+</style>
+
+<div class="not-found">
+  <h1>404</h1>
+  <p><strong>Página não encontrada :(</strong></p>
+  <p>A página que você procura não existe.</p>
+  <p><a href="{{ config.site_url | default('/') }}">Voltar para a página inicial</a></p>
+</div>
+{% endblock %}

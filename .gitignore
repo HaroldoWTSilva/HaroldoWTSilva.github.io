@@ -1,5 +1,7 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+# MkDocs build output
+site/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
