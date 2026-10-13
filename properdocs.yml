@@ -61,22 +61,6 @@ extra_javascript:
 hooks:
   - hooks/redirects.py
 
-extra:
-  redirect_maps:
-    # URLs antigas do Jekyll (.html) -> novas páginas
-    '2025/06/21/inauguracao.html': 'posts/inauguracao.md'
-    '2025/07/03/criar-blog-jekyll.html': 'posts/criar-blog-jekyll.md'
-    '2025/08/17/svmlm.html': 'posts/svmlm.md'
-    '2025/08/22/tutorial-stable-diffusion-cpp.html': 'posts/tutorial-stable-diffusion-cpp.md'
-    '2025/09/11/embedding-tipografico.html': 'posts/embedding-tipografico.md'
-    '2025/10/09/compressao-video-ffmpeg.html': 'posts/compressao-video-ffmpeg.md'
-    '2025/10/19/acessando-irc-weechat.html': 'posts/acessando-irc-weechat.md'
-    '2025/12/14/d6.html': 'posts/d6.md'
-    '2025/12/27/investimento-solar-prolog.html': 'posts/investimento-solar-prolog.md'
-    '2026/05/30/svm-biblio.html': 'posts/svm-biblio.md'
-    posts.html: index.md
-    posts/index.html: index.md
-
 markdown_extensions:
   - admonition
   - toc:
