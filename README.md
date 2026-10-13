@@ -1,14 +1,15 @@
 # A Palavra de Haroldo Watson
 
-Blog construído com [MkDocs](https://www.mkdocs.org) (tema
+Blog construído com [ProperDocs](https://properdocs.org) (tema
 [Material](https://squidfunk.github.io/mkdocs-material/)) e publicado no
 GitHub Pages em <https://haroldowtsilva.github.io>.
 
 ## Estrutura
 
-- `mkdocs.yml` — configuração do site (blog, tags, RSS, busca, temas claro/escuro,
-  redirecionamentos das URLs antigas do Jekyll, minificação, datas de revisão via git e
-  lightbox de imagens)
+- `properdocs.yml` — configuração do site (blog, tags, RSS, busca, temas claro/escuro,
+  minificação, datas de revisão via git e lightbox de imagens)
+- `hooks/redirects.py` — hook que gera os redirecionamentos das URLs antigas do Jekyll
+  (configurados em `extra.redirect_maps` no `properdocs.yml`)
 - `overrides/` — templates customizados do tema (ex.: página 404)
 - `docs/` — páginas estáticas (páginas com `not_in_nav: true` ficam fora do menu, acessíveis só pelo link)
 - `docs/posts/` — postagens do blog, listadas na página inicial (rascunhos usam `draft: true`)
@@ -20,14 +21,14 @@ GitHub Pages em <https://haroldowtsilva.github.io>.
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-mkdocs serve
+properdocs serve
 ```
 
 Para gerar o site em `site/`:
 
 ```bash
-mkdocs build
+properdocs build --strict
 ```
 
 O deploy no GitHub Pages é feito automaticamente pelo workflow
-`.github/workflows/mkdocs.yml` a cada push na branch `main`.
+`.github/workflows/properdocs.yml` a cada push na branch `main`.

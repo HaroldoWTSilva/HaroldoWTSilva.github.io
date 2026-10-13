@@ -1,0 +1,324 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="pt-BR" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Embedding tipográfico - A Palavra de Haroldo Watson</title>
+<meta name="description" content="Considere representação alternativa para caracteres">
+
+
+  <meta name="author" content="Haroldo Watson">
+  
+  <meta property="article:author" content="Haroldo Watson">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="A Palavra de Haroldo Watson">
+<meta property="og:title" content="Embedding tipográfico">
+<meta property="og:url" content="http://0.0.0.0:4000/2025/09/11/embedding-tipografico.html">
+
+
+  <meta property="og:description" content="Considere representação alternativa para caracteres">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-09-11T00:00:00-03:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/2025/09/11/embedding-tipografico.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="A Palavra de Haroldo Watson Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          A Palavra de Haroldo Watson
+          <span class="site-subtitle">Verdades incontestáveis</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/recomendacoes/"
+                
+                
+              >Recomendações</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Embedding tipográfico">
+    <meta itemprop="description" content="Considere representação alternativa para caracteres">
+    <meta itemprop="datePublished" content="2025-09-11T00:00:00-03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://0.0.0.0:4000/2025/09/11/embedding-tipografico.html" itemprop="url">Embedding tipográfico
+</a>
+          </h1>
+          
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-09-11T00:00:00-03:00">11/09/2025</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Uma sugestão de converter caracteres para vetores (<em>embedding</em>) pode ser usar 
+uma dimensão para cada tecla necessária para gerar o caractere. Seriam vetores
+esparsos. A ideia é que o <em>embedding</em> de uma palavra estaria relacionado à
+forma como a palavra é digitada em um teclado normal.</p>
+
+<p>Digamos que seja adotado o teclado ABNT2. Cada tecla do teclado que pode 
+gerar um caractere visível corresponde a uma dimensão, incluindo Shift 
+e acentos.</p>
+
+<p>O caractere <code class="language-plaintext highlighter-rouge">a</code>, então teria o valor 1 na dimensão
+correspondente à tecla “a”, e zero nas demais dimensões.</p>
+
+<p>O caractere <code class="language-plaintext highlighter-rouge">A</code> teria 1 na dimensão da tecla “a” e um
+valor na dimensão da tecla <em>Shift</em>.</p>
+
+<p>O caractere <code class="language-plaintext highlighter-rouge">Â</code> seria na verdade quebrado em dois caracteres: primeiro o
+<code class="language-plaintext highlighter-rouge">^</code>, que teria 1 na dimensão do <em>Shift</em> e 1 na dimensão da tecla à direita 
+do <code class="language-plaintext highlighter-rouge">ç</code>, que tem <code class="language-plaintext highlighter-rouge">^</code> e <code class="language-plaintext highlighter-rouge">~</code>.</p>
+
+<p>Uma alternativa seria usar a posição em coordenadas 2D das teclas do teclado.
+Por exemplo, no teclado ABNT2, a tecla G está mais próxima espacialmente das teclas
+R,T,Y,F,H,V,B e N. Ela está notavelmente mais distante da tecla P. Então a tecla G deveria
+corresponder a um vetor 2D que está a uma distância menor da tecla N do que da tecla P.</p>
+
+<p>Uma vantagem dessas formas de representação é que palavras tipograficamente parecidas
+seriam mapeadas para sequências de vetores tipograficamente parecidos também.</p>
+
+<p>Não é do meu conhecimento se alguém já publicou algo parecido.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-09-11T00:00:00-03:00">11/09/2025</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/2025/08/22/tutorial-stable-diffusion-cpp.html" class="pagination--pager" title="Tutorial básico de stable-diffusion.cpp">Previous</a>
+    
+    
+      <a href="/2025/10/09/compressao-video-ffmpeg.html" class="pagination--pager" title="Tutorial de compressão de vídeo com FFMPEG">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        
+<div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://0.0.0.0:4000">A Palavra de Haroldo Watson</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

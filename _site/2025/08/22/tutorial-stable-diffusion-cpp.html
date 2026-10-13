@@ -1,0 +1,401 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="pt-BR" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Tutorial básico de stable-diffusion.cpp - A Palavra de Haroldo Watson</title>
+<meta name="description" content="Aprenda a gerar imagens com IA generativa por linha de comando">
+
+
+  <meta name="author" content="Haroldo Watson">
+  
+  <meta property="article:author" content="Haroldo Watson">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="A Palavra de Haroldo Watson">
+<meta property="og:title" content="Tutorial básico de stable-diffusion.cpp">
+<meta property="og:url" content="http://0.0.0.0:4000/2025/08/22/tutorial-stable-diffusion-cpp.html">
+
+
+  <meta property="og:description" content="Aprenda a gerar imagens com IA generativa por linha de comando">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-08-22T00:00:00-03:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/2025/08/22/tutorial-stable-diffusion-cpp.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="A Palavra de Haroldo Watson Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          A Palavra de Haroldo Watson
+          <span class="site-subtitle">Verdades incontestáveis</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/recomendacoes/"
+                
+                
+              >Recomendações</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tutorial básico de stable-diffusion.cpp">
+    <meta itemprop="description" content="Aprenda a gerar imagens com IA generativa por linha de comando">
+    <meta itemprop="datePublished" content="2025-08-22T00:00:00-03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://0.0.0.0:4000/2025/08/22/tutorial-stable-diffusion-cpp.html" itemprop="url">Tutorial básico de stable-diffusion.cpp
+</a>
+          </h1>
+          
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-08-22T00:00:00-03:00">22/08/2025</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="introdução">Introdução</h2>
+
+<p>Ensinarei aqui como usar o <a href="https://github.com/leejet/stable-diffusion.cpp">stable-diffusion.cpp</a> para gerar imagens de IA generativa por linha de comando.</p>
+
+<p>Requisitos:</p>
+<ul>
+  <li>Conhecimento em Linux, Bash e compilação de programas com C++ e CUDA.</li>
+  <li>Um computador com 8GB de RAM e uma GPU NVIDIA com pelo menos 4GB de VRAM.</li>
+  <li>Linux instalado, com os drivers da NVIDIA e CUDA.</li>
+  <li>Ferramentas de desenvolvimento: git, g++, make, cmake, etc.</li>
+</ul>
+
+<p>Os comandos desse tutorial foram testados em uma máquina com Fedora 42 e uma GPU GeForce RTX 2050.
+Eu vou supor que o leitor não entende nada de IA generativa, mas que tem uma base sólida em computação.</p>
+
+<h2 id="baixando-um-modelo">Baixando um modelo</h2>
+
+<p>O site <a href="https://civitai.com">CivitAI</a> é focado em modelos generativos. O leitor pode navegar lá e escolher um de sua preferência.
+Escolher o modelo não é uma tarefa tão simples quanto parece para um iniciante, por causa da torrente
+de informações desconexas, rótulos estranhos, e opções indistinguíveis. É assim mesmo.</p>
+
+<p>Para esse tutorial, será utilizado o modelo <a href="https://civitai.com/models/827184?modelVersionId=1490781">WAI-NSFW-illustrious-SDXL, versão 12</a>.
+É um modelo destinado a geração de imagens no estilo anime, gratuito, sem censura, baseado no modelo Illustrious.
+Na página dele do CivitAI, há um link para download um pouco escondido, logo abaixo da tabela de detalhes do modelo.
+O leitor pode então baixar o arquivo <em>waiNSFWIllustrious_v120.safetensors</em>, de quase 6,5GB.</p>
+
+<p>Baseado no que é dito na página do modelo, pode-se usar as seguintes opções recomendadas:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">MODEL_OPTS</span><span class="o">=</span><span class="s2">"--steps 30 --cfg-scale 6.0 --sampling-method euler"</span>
+<span class="nv">MODEL_POSPROMPT</span><span class="o">=</span><span class="s2">"masterpiece,best quality,amazing quality,"</span>
+<span class="nv">MODEL_NEGPROMPT</span><span class="o">=</span><span class="s2">"bad quality,worst quality,worst detail,sketch,censor,"</span>
+
+</code></pre></div></div>
+
+<p>O significado dessas opções foge do escopo desse tutorial, mas é importante entender que todo modelo tem suas opções específicas
+e que elas podem ser encaixadas em argumentos do programa.</p>
+
+<h2 id="compilando-o-programa">Compilando o programa</h2>
+
+<p>As instruções oficiais para compilação estão na página do github do stable-diffusion.cpp. 
+Vou transcrever as instruções da versão atual aqui.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#baixa o código</span>
+git clone <span class="nt">--recursive</span> https://github.com/leejet/stable-diffusion.cpp
+<span class="nb">cd </span>stable-diffusion.cpp
+
+<span class="c">#modifique para sua configuração de cuda</span>
+<span class="nv">CUDA</span><span class="o">=</span>...
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$CUDA</span>/bin
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$CUDA</span>/lib64
+
+<span class="c">#compila</span>
+<span class="nb">mkdir </span>build
+<span class="nb">cd </span>build
+cmake .. <span class="nt">-DSD_CUDA</span><span class="o">=</span>ON
+cmake <span class="nt">--build</span> <span class="nb">.</span> <span class="nt">--config</span> Release
+
+<span class="nv">SD</span><span class="o">=</span><span class="nv">$PWD</span>/bin/sd
+</code></pre></div></div>
+
+<p>Daqui pra frente, vou supor que a variável <code class="language-plaintext highlighter-rouge">$SD</code> diz o caminho absoluto do binário sd.</p>
+
+<h2 id="lidando-com-poucos-recursos">Lidando com poucos recursos</h2>
+
+<p>É perfeitamente possível gerar imagens usando apenas CPU. Isso significa aguardar 20min até 45min pra ver um resultado pronto.
+Eu não irei ensinar como fazer isso aqui, mas digo que é um bom exercício de paciência.</p>
+
+<p>Se você tiver uma GPU com 8GB ou mais de memória, o modelo deve caber inteiro na placa e nenhum outro arquivo ou configuração especial é necessária.</p>
+
+<p>Mas se você, como eu, tiver apenas à disposição uma GPU de 4GB, então você precisa quantizar o modelo, ou seja, reduzir o tamanho (e qualidade) do 
+arquivo para permitir que pelo menos uma parte dele seja alocada na GPU.
+Além disso, será preciso passar alguns argumentos especiais para o programa limitar quais partes do modelo ficam na GPU.</p>
+
+<p>O código a seguir mostra como fazer quantização do arquivo baixado para <em>q4_K</em>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">GGUF</span><span class="o">=</span>waiNSFWIllustrious_v120_q4_k.gguf
+<span class="nv">$SD</span> <span class="nt">-M</span> convert <span class="nt">-m</span> waiNSFWIllustrious_v120.safetensors <span class="nt">-o</span> <span class="nv">$GGUF</span>  <span class="nt">-v</span> <span class="nt">--type</span> q4_K
+<span class="nv">MODEL</span><span class="o">=</span><span class="nv">$PWD</span>/<span class="nv">$GGUF</span>
+</code></pre></div></div>
+
+<p>Daqui pra frente irei supor que a variável <code class="language-plaintext highlighter-rouge">$MODEL</code> tem o filename absoluto do modelo, seja ele safetensors ou gguf.
+As seguintes opções dizem para rodar algumas partes do modelo em CPU, e não em GPU:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PERF_OPTIONS</span><span class="o">=</span><span class="s2">"--vae-on-cpu --clip-on-cpu --control-net-cpu"</span>
+<span class="c">#ajuste para o número de threads de cpu da sua máquina</span>
+<span class="nv">THREADS</span><span class="o">=</span>8
+</code></pre></div></div>
+
+<p>Essas opções causam uma penalidade de performance, porque rodar em CPU é mais lento do que em GPU.
+Sem elas, no entanto, o programa irá falhar ao rodar com esse modelo em uma GPU com 4GB.</p>
+
+<h2 id="gerando-uma-imagem">Gerando uma imagem</h2>
+
+<p>Se tudo deu certo até aqui, você já deverá ser capaz de gerar imagens.</p>
+
+<p>O código a seguir irá gerar a imagem de abertura desse tutorial:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PROMPT</span><span class="o">=</span><span class="s2">"Happy high school girl blushes while eating a colorful icecream."</span>
+<span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">"stable-diffusion-cpp-tutorial-result.png"</span>
+<span class="nv">$SD</span> <span class="nt">-m</span> <span class="s2">"</span><span class="nv">$MODEL</span><span class="s2">"</span> <span class="nv">$MODEL_OPTS</span> <span class="nt">-o</span> <span class="s2">"</span><span class="nv">$OUTPUT</span><span class="s2">"</span> <span class="nt">-H</span> 1024 <span class="nt">-W</span> 1024 <span class="nt">--seed</span> 69 <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$PROMPT</span><span class="s2"> </span><span class="nv">$MODEL_POSPROMPT</span><span class="s2">"</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$MODEL_NEGPROMPT</span><span class="s2">"</span>  <span class="nt">-t</span> <span class="nv">$THREADS</span>  <span class="nv">$PERF_OPTIONS</span>
+</code></pre></div></div>
+
+<p>O significado dos argumentos é: usar o modelo com as opções del para gerar uma imagem com o nome passado, de altura 1024, largura 1024, semente aleatória 69 (altere para ter resultados diferentes),
+com o prompt textual e prompt negativo passados, usando o número de threads passadas e as demais opções já comentadas.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-22T00:00:00-03:00">22/08/2025</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/2025/08/17/svmlm.html" class="pagination--pager" title="SVMLM">Previous</a>
+    
+    
+      <a href="/2025/09/11/embedding-tipografico.html" class="pagination--pager" title="Embedding tipográfico">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        
+<div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://0.0.0.0:4000">A Palavra de Haroldo Watson</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
