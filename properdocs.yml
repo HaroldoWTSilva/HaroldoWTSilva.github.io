@@ -21,7 +21,7 @@ theme:
         icon: material/weather-sunny
         name: Mudar para o modo claro
   features:
-    - navigation.tabs
+    - navigation.indexes
     - content.code.copy
     - toc.follow
 
